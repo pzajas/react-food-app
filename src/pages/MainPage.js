@@ -2,14 +2,16 @@ import Slider from "../components/Slider/Slider";
 import Cards from "../components/Card/Cards";
 import Menu from "../components/Menu/Menu";
 
-import image from "../assets/Images/Slider.jpg";
+import PrimarySlider from "../assets/Images/PrimarySlider.jpg";
+import SecondarySlider from "../assets/Images/SecondarySlider.jpg";
 
 const MainPage = () => {
   return (
     <div>
-      <Slider image={image} />
+      <Slider image={PrimarySlider} />
       <Cards />
       <Menu />
+      <Slider image={SecondarySlider} />
     </div>
   );
 };
