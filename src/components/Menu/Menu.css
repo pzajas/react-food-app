@@ -1,3 +1,6 @@
+.menu {
+  padding-bottom: 80px;
+}
 .menu ul {
   display: flex;
   list-style: none;
