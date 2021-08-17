@@ -1,0 +1,30 @@
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  background-color: rgb(238, 238, 238);
+  transition: all 0.3s ease-in-out;
+  padding-top: 12px;
+}
+
+.icon-card:hover {
+  box-shadow: 0 0 10px rgb(194, 194, 194);
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.icon__card-title,
+.icon__card-line {
+  margin-bottom: -10px;
+}
+
+.icon__card-small {
+  font-size: 8px;
+  width: 50%;
+  text-align: center;
+  /* margin-top: 10px; */
+}

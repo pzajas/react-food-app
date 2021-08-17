@@ -2,9 +2,9 @@ import Card from "./Card";
 
 import "./Cards.css";
 
-import SquareOne from "../../assets/Images/SquareOne.jpg";
-import SquareTwo from "../../assets/Images/SquareTwo.jpg";
-import SquareThree from "../../assets/Images/SquareThree.jpg";
+import SquareOne from "../../../assets/Images/SquareOne.jpg";
+import SquareTwo from "../../../assets/Images/SquareTwo.jpg";
+import SquareThree from "../../../assets/Images/SquareThree.jpg";
 
 const Cards = () => {
   return (
