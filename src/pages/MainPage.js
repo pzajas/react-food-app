@@ -1,7 +1,11 @@
+import Slider from "../components/Slider/Slider";
+
+import image from "../assets/Images/Slider.jpg";
+
 const MainPage = () => {
   return (
     <div>
-      <h1>This is the main page!</h1>
+      <Slider image={image} />
     </div>
   );
 };
