@@ -1,6 +1,5 @@
 import GalleryImage from "./GalleryImage";
 
-import GalleryOne from "../../assets/Images/GalleryOne.jpg";
 import GalleryTwo from "../../assets/Images/GalleryTwo.jpg";
 
 import "./Gallery.css";
