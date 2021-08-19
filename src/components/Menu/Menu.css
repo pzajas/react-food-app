@@ -1,12 +1,58 @@
 .menu {
-  padding-bottom: 80px;
+  margin-bottom: 3rem;
 }
 .menu ul {
   display: flex;
   list-style: none;
   justify-content: center;
+  gap: 10px;
 }
 
-.menu ul li {
-  margin-right: 10px;
+.menu-item {
+  display: flex;
+  margin-right: 15px;
+  text-align: center;
+  flex-direction: column;
+  max-width: 20%;
+  min-height: 25%;
+  border: 1px solid rgb(194, 194, 194);
+}
+
+.item-photo {
+  height: 75%;
+  padding: 0;
+  margin: 0;
+}
+
+.item-photo img {
+  height: 75%;
+}
+
+.item-photo img:hover {
+  opacity: 85%;
+}
+
+.item-name {
+  font-size: 20px;
+  position: relative;
+  bottom: 30px;
+}
+
+.item-description {
+  display: flex;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 10px;
+  padding: 0.2rem;
+  position: relative;
+  bottom: 15px;
+}
+
+.item-price {
+  margin-bottom: 0.5rem;
+  position: relative;
+  bottom: 10px;
+}
+
+button {
 }
