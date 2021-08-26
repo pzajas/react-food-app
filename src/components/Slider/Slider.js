@@ -1,11 +1,11 @@
-import "./Slider.css";
+import "./Slider.css"
 
-const MainSlider = ({ image }) => {
+const MainSlider = ({image}) => {
   return (
     <div className="slider">
-      <img src={image} alt="Primary slider" width="100%" />
+      <img src={image} alt="Primary slider" />
     </div>
-  );
-};
+  )
+}
 
-export default MainSlider;
+export default MainSlider

@@ -1,8 +1,9 @@
-import "./Navbar.css";
+import "./Navbar.css"
 
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom"
+import Cart from "../../assets/Icons/cart.svg"
 
-const Navbar = () => {
+const Navbar = ({toggleCart}) => {
   return (
     <nav className="navbar">
       <div className="brand-title">BRAND NAME</div>
@@ -14,10 +15,18 @@ const Navbar = () => {
           <li>
             <NavLink to="/about">ABOUT</NavLink>
           </li>
+          <li className="cart-icon">
+            <img
+              className="cart"
+              src={Cart}
+              alt="A cart"
+              onClick={toggleCart}
+            ></img>
+          </li>
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
