@@ -21,8 +21,8 @@ const Menu = () => {
       price: "$15",
     },
     {
-      id: 1,
-      name: "Hamburger for Poor",
+      id: 3,
+      name: "Hamburger 3",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: "$8",

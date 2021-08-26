@@ -25,6 +25,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: center;
 }
 
 .navbar-links li {
@@ -36,4 +37,19 @@ body {
   padding: 1.8rem;
   display: block;
   text-decoration: none;
+}
+
+.cart-icon {
+  display: flex;
+  width: 20%;
+  position: relative;
+  left: 100px;
+}
+
+.cart {
+  display: flex;
+  position: relative;
+  width: 25%;
+  height: auto;
+  cursor: pointer;
 }
