@@ -2,10 +2,10 @@ import {useState} from "react"
 
 import CartListItem from "./CartListItem"
 
-const CartList = ({cartList}) => {
+const CartList = ({cartList, handleTotalPrice}) => {
   return (
     <div>
-      <CartListItem cartList={cartList} />
+      <CartListItem cartList={cartList} handleTotalPrice={handleTotalPrice} />
     </div>
   )
 }

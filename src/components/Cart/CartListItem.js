@@ -1,5 +1,3 @@
-import {useState} from "react"
-
 import "./CartListItem.css"
 
 const CartListItem = ({cartList}) => {
