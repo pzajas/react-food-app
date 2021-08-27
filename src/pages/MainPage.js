@@ -16,6 +16,11 @@ import SecondarySlider from "../assets/Images/SecondarySlider.jpg"
 import "./MainPage.css"
 
 const MainPage = () => {
+  const [cartList, setCartList] = useState([
+    {id: 4, name: "Hamburger", description: "", price: 12},
+    {id: 5, name: "Hamburger", description: "", price: 10},
+    {id: 6, name: "Hamburger", description: "", price: 10},
+  ])
   const [showCart, setShowCart] = useState(false)
 
   const handleCart = () => {
@@ -28,9 +33,11 @@ const MainPage = () => {
       <div className="container-slider">
         <Slider image={PrimarySlider} />
       </div>
-      <div className="move-div">{showCart ? <Cart /> : null}</div>
+      <div className="move-div">
+        {showCart ? <Cart cartList={cartList} /> : null}
+      </div>
       <Cards />
-      <Menu />
+      <Menu cartList={cartList} setCartList={setCartList} />
       <Slider image={SecondarySlider} />
       <IconCards />
       <Gallery />
