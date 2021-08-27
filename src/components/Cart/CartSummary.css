@@ -1,0 +1,13 @@
+.class-summary {
+  position: absolute;
+  height: 50px;
+}
+
+.class-summary-items {
+  display: block;
+  flex-direction: column;
+
+  position: relative;
+  bottom: 225px;
+  left: 780px;
+}

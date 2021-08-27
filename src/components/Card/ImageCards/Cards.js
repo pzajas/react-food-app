@@ -1,10 +1,10 @@
-import Card from "./Card";
+import Card from "./Card"
 
-import "./Cards.css";
+import "./Cards.css"
 
-import SquareOne from "../../../assets/Images/SquareOne.jpg";
-import SquareTwo from "../../../assets/Images/SquareTwo.jpg";
-import SquareThree from "../../../assets/Images/SquareThree.jpg";
+import SquareOne from "../../../assets/Images/SquareOne.jpg"
+import SquareTwo from "../../../assets/Images/SquareTwo.jpg"
+import SquareThree from "../../../assets/Images/SquareThree.jpg"
 
 const Cards = () => {
   return (
@@ -14,7 +14,7 @@ const Cards = () => {
       <Card image={SquareThree} />
       <Card image={SquareOne} />
     </div>
-  );
-};
+  )
+}
 
-export default Cards;
+export default Cards

@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 import Navbar from "../components/Navbar/Navbar"
 import Slider from "../components/Slider/Slider"
@@ -21,7 +21,14 @@ const MainPage = () => {
     {id: 5, name: "Hamburger", description: "", price: 10},
     {id: 6, name: "Hamburger", description: "", price: 10},
   ])
+
+  const [totalPrice, setTotalPrice] = useState([])
   const [showCart, setShowCart] = useState(false)
+
+  useEffect(() => {
+    let updatedPrice = cartList.map(item => item.price)
+    setTotalPrice(updatedPrice.reduce((pv, cv) => pv + cv, 0))
+  }, [cartList])
 
   const handleCart = () => {
     setShowCart(!showCart)
@@ -34,7 +41,7 @@ const MainPage = () => {
         <Slider image={PrimarySlider} />
       </div>
       <div className="move-div">
-        {showCart ? <Cart cartList={cartList} /> : null}
+        {showCart ? <Cart cartList={cartList} totalPrice={totalPrice} /> : null}
       </div>
       <Cards />
       <Menu cartList={cartList} setCartList={setCartList} />
