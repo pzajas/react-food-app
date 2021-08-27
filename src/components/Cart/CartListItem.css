@@ -1,0 +1,19 @@
+.cart-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-ul {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 350px;
+  left: 725px;
+}
