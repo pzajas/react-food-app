@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
 
 import Burger1 from "../../assets/Menu/Transparent/Burger1.png"
 
@@ -15,14 +15,14 @@ const Menu = ({cartList, setCartList}) => {
     },
     {
       id: 2,
-      name: "Hamburger 2",
+      name: "Pizza",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 15,
     },
     {
       id: 3,
-      name: "Hamburger 3",
+      name: "Sushi",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 8,
@@ -30,20 +30,71 @@ const Menu = ({cartList, setCartList}) => {
   ]
 
   const [menu, setMenu] = useState(initialState)
+  const [filteredMenu, setFilteredMenu] = useState([])
+
+  const [status, setStatus] = useState("All")
 
   const addItemToCart = item => {
     setCartList([...cartList, item])
   }
 
+  const handleStatus = e => {
+    setStatus(e.target.value)
+  }
+
+  // const handleFiltered = () => {
+  //   switch (status) {
+  //     case "Hamb":
+  //       setFilteredMenu(menu.filter(item => item.name === "Hamburger"))
+  //       break
+  //     case "Pizza":
+  //       setFilteredMenu(menu.filter(item => item.name === "Pizza"))
+  //       break
+  //     case "Sushi":
+  //       setFilteredMenu(menu.filter(item => item.name === "Sushi"))
+  //       break
+  //     default:
+  //       setFilteredMenu(menu)
+  //   }
+  // }
+
+  useEffect(() => {
+    switch (status) {
+      case "Hamb":
+        setFilteredMenu(menu.filter(item => item.name === "Hamburger"))
+        break
+      case "Pizza":
+        setFilteredMenu(menu.filter(item => item.name === "Pizza"))
+        break
+      case "Sushi":
+        setFilteredMenu(menu.filter(item => item.name === "Sushi"))
+        break
+      default:
+        setFilteredMenu(menu)
+    }
+  }, [menu, status])
+
   return (
     <div className="menu">
+      <button onClick={handleStatus} value="All">
+        All
+      </button>
+      <button onClick={handleStatus} value="Hamb">
+        Hamb
+      </button>
+      <button onClick={handleStatus} value="Pizza">
+        Pizza
+      </button>
+      <button onClick={handleStatus} value="Sushi">
+        Sushi
+      </button>
       <ul>
-        {menu.map(item => (
+        {filteredMenu.map(item => (
           <li key={item.id} className="menu-item">
             <div className="item-photo">
               <img src={Burger1} alt="Menu item" />
             </div>
-            <div className="item-name">{item.name}</div>
+            <div className="item-name hamburger">{item.name}</div>
             <div className="item-description"> {item.description}</div>
             <div className="item-price"> {item.price}</div>
             <input type="submit" onClick={() => addItemToCart(item)} />

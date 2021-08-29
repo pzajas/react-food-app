@@ -27,7 +27,9 @@ const MainPage = () => {
 
   useEffect(() => {
     let updatedPrice = cartList.map(item => item.price)
-    setTotalPrice(updatedPrice.reduce((pv, cv) => pv + cv, 0))
+    setTotalPrice(
+      updatedPrice.reduce((prevValue, currValue) => prevValue + currValue, 0)
+    )
   }, [cartList])
 
   const handleCart = () => {
