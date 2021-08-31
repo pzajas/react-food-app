@@ -38,7 +38,7 @@ const MainPage = () => {
 
   return (
     <div className="xxx">
-      <Navbar toggleCart={handleCart} />
+      <Navbar toggleCart={handleCart} cartList={cartList} />
       <div className="container-slider">
         <Slider image={PrimarySlider} />
       </div>
