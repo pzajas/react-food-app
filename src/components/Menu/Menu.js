@@ -7,21 +7,21 @@ import "./Menu.css"
 const Menu = ({cartList, setCartList}) => {
   const initialState = [
     {
-      id: 1,
+      id: Math.random() * 1000,
       name: "Hamburger",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 10,
     },
     {
-      id: 2,
+      id: Math.random() * 1000,
       name: "Pizza",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 15,
     },
     {
-      id: 3,
+      id: Math.random() * 1000,
       name: "Sushi",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
@@ -41,22 +41,6 @@ const Menu = ({cartList, setCartList}) => {
   const handleStatus = e => {
     setStatus(e.target.value)
   }
-
-  // const handleFiltered = () => {
-  //   switch (status) {
-  //     case "Hamb":
-  //       setFilteredMenu(menu.filter(item => item.name === "Hamburger"))
-  //       break
-  //     case "Pizza":
-  //       setFilteredMenu(menu.filter(item => item.name === "Pizza"))
-  //       break
-  //     case "Sushi":
-  //       setFilteredMenu(menu.filter(item => item.name === "Sushi"))
-  //       break
-  //     default:
-  //       setFilteredMenu(menu)
-  //   }
-  // }
 
   useEffect(() => {
     switch (status) {
