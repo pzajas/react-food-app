@@ -17,9 +17,9 @@ import "./MainPage.css"
 
 const MainPage = () => {
   const [cartList, setCartList] = useState([
-    {id: 4, name: "Hamburger", description: "", price: 12},
-    {id: 5, name: "Hamburger", description: "", price: 10},
-    {id: 6, name: "Hamburger", description: "", price: 10},
+    {id: Math.random() * 1000, name: "Hamburger", description: "", price: 12},
+    {id: Math.random() * 1000, name: "Hamburger", description: "", price: 10},
+    {id: Math.random() * 1000, name: "Hamburger", description: "", price: 10},
   ])
 
   const [totalPrice, setTotalPrice] = useState([])
@@ -43,7 +43,13 @@ const MainPage = () => {
         <Slider image={PrimarySlider} />
       </div>
       <div className="move-div">
-        {showCart ? <Cart cartList={cartList} totalPrice={totalPrice} /> : null}
+        {showCart ? (
+          <Cart
+            cartList={cartList}
+            setCartList={setCartList}
+            totalPrice={totalPrice}
+          />
+        ) : null}
       </div>
       <Cards />
       <Menu cartList={cartList} setCartList={setCartList} />
