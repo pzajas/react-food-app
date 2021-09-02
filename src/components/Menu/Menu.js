@@ -4,14 +4,15 @@ import Burger1 from "../../assets/Menu/Transparent/Burger1.png"
 
 import "./Menu.css"
 
-const Menu = ({cartList, setCartList}) => {
+const Menu = ({handleAdd}) => {
   const initialState = [
     {
       id: Math.random() * 1000,
-      name: "Hamburger",
+      name: "Hamb",
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 10,
+      cost: 10,
     },
     {
       id: Math.random() * 1000,
@@ -19,6 +20,7 @@ const Menu = ({cartList, setCartList}) => {
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 15,
+      cost: 15,
     },
     {
       id: Math.random() * 1000,
@@ -26,17 +28,14 @@ const Menu = ({cartList, setCartList}) => {
       description:
         "A hamburger (also burger for short) is a food, typically considered a sandwich",
       price: 8,
+      cost: 8,
     },
   ]
 
-  const [menu, setMenu] = useState(initialState)
+  const [menu] = useState(initialState)
   const [filteredMenu, setFilteredMenu] = useState([])
 
   const [status, setStatus] = useState("All")
-
-  const addItemToCart = item => {
-    setCartList([...cartList, item])
-  }
 
   const handleStatus = e => {
     setStatus(e.target.value)
@@ -45,7 +44,7 @@ const Menu = ({cartList, setCartList}) => {
   useEffect(() => {
     switch (status) {
       case "Hamb":
-        setFilteredMenu(menu.filter(item => item.name === "Hamburger"))
+        setFilteredMenu(menu.filter(item => item.name === "Hamb"))
         break
       case "Pizza":
         setFilteredMenu(menu.filter(item => item.name === "Pizza"))
@@ -80,8 +79,8 @@ const Menu = ({cartList, setCartList}) => {
             </div>
             <div className="item-name hamburger">{item.name}</div>
             <div className="item-description"> {item.description}</div>
-            <div className="item-price"> {item.price}</div>
-            <input type="submit" onClick={() => addItemToCart(item)} />
+            <div className="item-price"> ${item.cost}</div>
+            <button onClick={() => handleAdd(item)}>Add to Cart</button>
           </li>
         ))}
       </ul>

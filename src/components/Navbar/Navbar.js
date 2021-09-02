@@ -3,7 +3,7 @@ import "./Navbar.css"
 import {NavLink} from "react-router-dom"
 import Cart from "../../assets/Icons/cart.svg"
 
-const Navbar = ({toggleCart, cartList}) => {
+const Navbar = ({toggleCart, itemCount}) => {
   return (
     <nav className="navbar">
       <div className="brand-title">BRAND NAME</div>
@@ -22,7 +22,7 @@ const Navbar = ({toggleCart, cartList}) => {
               alt="A cart"
               onClick={toggleCart}
             ></img>
-            <h4>{cartList.length}</h4>
+            <h4>{itemCount}</h4>
           </li>
         </ul>
       </div>

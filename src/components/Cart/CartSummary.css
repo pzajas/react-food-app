@@ -1,13 +1,17 @@
-.class-summary {
+.cart-summary {
   position: absolute;
-  height: 50px;
+  top: 250px;
+  left: 770px;
+  width: 100%;
+  justify-content: left;
+  text-align: left;
+  justify-self: left;
 }
 
-.class-summary-items {
-  display: block;
-  flex-direction: column;
-
-  position: relative;
-  bottom: 225px;
-  left: 780px;
+.summary-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  justify-self: left;
+  text-align: left;
 }

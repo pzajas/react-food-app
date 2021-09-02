@@ -1,13 +1,20 @@
 import "./CartSummary.css"
 
-const CartSummary = ({totalPrice}) => {
+const CartSummary = ({cartList, totalPrice}) => {
+  const deliveryPrice = 2
   return (
-    <div className="cart-summary">
-      <div className="class-summary-items">
-        <h4>Total Items Price: 15$</h4>
-        <h4>Delivery Cost:</h4>
-        <h4>Total Price:{totalPrice} </h4>
-      </div>
+    <div>
+      {cartList.length > 0 ? (
+        <div className="cart-summary">
+          <div className="summary-item">Total Price:{totalPrice}</div>
+          <div className="summary-item">Delivery Price: {deliveryPrice} </div>
+          <div className="summary-item">
+            To pay:{totalPrice + deliveryPrice}
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   )
 }
