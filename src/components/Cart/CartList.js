@@ -6,7 +6,7 @@ const CartList = ({cartList, handleAdd, handleRemove, handleRemoveAll}) => {
   return (
     <div>
       {cartList.map(item => (
-        <li className="cart-ul">
+        <li key={item.id} className="cart-ul">
           <div>{item.name}</div>
           <div>
             {item.qty} x ${item.price}
@@ -14,7 +14,7 @@ const CartList = ({cartList, handleAdd, handleRemove, handleRemoveAll}) => {
           <div>
             <button onClick={() => handleAdd(item)}>+</button>
             <button onClick={() => handleRemove(item)}>-</button>
-            <button onClick={() => handleRemoveAll(item.id)}>Remove All</button>
+            <button onClick={() => handleRemoveAll(item)}>Remove All</button>
           </div>
         </li>
       ))}

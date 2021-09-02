@@ -8,6 +8,8 @@ const Cart = ({
   handleAdd,
   handleRemove,
   handleRemoveAll,
+  handleClearCart,
+  setCartList,
 }) => {
   return (
     <div className="cart-div">
@@ -21,8 +23,14 @@ const Cart = ({
           handleAdd={handleAdd}
           handleRemove={handleRemove}
           handleRemoveAll={handleRemoveAll}
+          handleClearCart={handleClearCart}
         />
-        <CartSummary cartList={cartList} totalPrice={totalPrice} />
+        <CartSummary
+          cartList={cartList}
+          totalPrice={totalPrice}
+          handleClearCart={handleClearCart}
+          setCartList={setCartList}
+        />
       </div>
     </div>
   )
