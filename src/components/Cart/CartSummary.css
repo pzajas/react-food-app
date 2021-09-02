@@ -15,3 +15,10 @@
   justify-self: left;
   text-align: left;
 }
+
+.summary-btn {
+  position: absolute;
+  top: 316px;
+  left: 761px;
+  width: 100%;
+}

@@ -1,7 +1,17 @@
 import "./CartSummary.css"
 
-const CartSummary = ({cartList, totalPrice}) => {
+const CartSummary = ({
+  cartList,
+  totalPrice,
+  handleClearCart,
+  setCartList,
+  id,
+}) => {
   const deliveryPrice = 2
+
+  const xxx = () => {
+    setCartList(cartList.filter(item => item.id === id))
+  }
   return (
     <div>
       {cartList.length > 0 ? (
@@ -15,6 +25,11 @@ const CartSummary = ({cartList, totalPrice}) => {
       ) : (
         <div></div>
       )}
+      {cartList.length > 0 ? (
+        <button className="summary-btn" onClick={() => handleClearCart()}>
+          Clear le Cart
+        </button>
+      ) : null}
     </div>
   )
 }

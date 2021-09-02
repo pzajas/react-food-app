@@ -23,11 +23,6 @@ const MainPage = () => {
 
   const [itemCount, setItemCount] = useState(0)
 
-  // useEffect(() => {
-  //   let updatedPrice = cartList.map(item => item.price * itemCount)
-  //   setTotalPrice(updatedPrice)
-  // }, [cartList])
-
   const handleAdd = item => {
     const exist = cartList.find(x => x.id === item.id)
     if (exist) {
@@ -49,7 +44,7 @@ const MainPage = () => {
   }
 
   const handleRemove = item => {
-    const exist = cartList.find(x => x.id === item.id)
+    const exist = cartList.find(product => product.id === item.id)
     if (item.qty > 1) {
       setCartList(
         cartList.map(x =>
@@ -62,13 +57,30 @@ const MainPage = () => {
             : x
         )
       )
-    } else setCartList(cartList.filter(x => x.id !== item.id))
+    } else setCartList(cartList.filter(product => product.id !== item.id))
 
     setTotalPrice(totalPrice - item.cost)
     setItemCount(itemCount - 1)
   }
 
-  const handleRemoveAll = () => {}
+  const handleRemoveAll = (item, id) => {
+    cartList.map(item =>
+      item.id !== id && itemCount > 0
+        ? setItemCount(itemCount - item.qty)
+        : console.log("no")
+    )
+    cartList.map(item => item.id !== id)
+      ? setTotalPrice(totalPrice - item.price)
+      : console.log("nope")
+
+    setCartList(cartList.filter(product => product.id !== item.id))
+  }
+
+  const handleClearCart = id => {
+    setCartList(cartList.filter(product => product.id === id))
+    setTotalPrice(0)
+    setItemCount(0)
+  }
 
   const handleCart = () => {
     setShowCart(!showCart)
@@ -96,6 +108,7 @@ const MainPage = () => {
             handleAdd={handleAdd}
             handleRemove={handleRemove}
             handleRemoveAll={handleRemoveAll}
+            handleClearCart={handleClearCart}
           />
         ) : null}
       </div>
