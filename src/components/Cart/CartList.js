@@ -1,15 +1,23 @@
-import {useState} from "react"
-
 import CartListItem from "./CartListItem"
 
-const CartList = ({cartList, setCartList, handleTotalPrice}) => {
+import "./CartList.css"
+
+const CartList = ({cartList, handleAdd, handleRemove, handleRemoveAll}) => {
   return (
     <div>
-      <CartListItem
-        cartList={cartList}
-        setCartList={setCartList}
-        handleTotalPrice={handleTotalPrice}
-      />
+      {cartList.map(item => (
+        <li className="cart-ul">
+          <div>{item.name}</div>
+          <div>
+            {item.qty} x ${item.price}
+          </div>
+          <div>
+            <button onClick={() => handleAdd(item)}>+</button>
+            <button onClick={() => handleRemove(item)}>-</button>
+            <button onClick={() => handleRemoveAll(item.id)}>Remove All</button>
+          </div>
+        </li>
+      ))}
     </div>
   )
 }
