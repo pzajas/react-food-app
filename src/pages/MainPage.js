@@ -67,11 +67,11 @@ const MainPage = () => {
     cartList.map(item =>
       item.id !== id && itemCount > 0
         ? setItemCount(itemCount - item.qty)
-        : console.log("no")
+        : setItemCount(itemCount)
     )
     cartList.map(item => item.id !== id)
       ? setTotalPrice(totalPrice - item.price)
-      : console.log("nope")
+      : setTotalPrice(totalPrice)
 
     setCartList(cartList.filter(product => product.id !== item.id))
   }
@@ -85,6 +85,27 @@ const MainPage = () => {
   const handleCart = () => {
     setShowCart(!showCart)
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("cartList") === null) {
+      localStorage.setItem("cartList", JSON.stringify([]))
+      localStorage.setItem("totalPrice", JSON.stringify(0))
+      localStorage.setItem("itemCount", JSON.stringify(0))
+    } else {
+      let cartLocal = JSON.parse(localStorage.getItem("cartList"))
+      setCartList(cartLocal)
+      let priceLocal = JSON.parse(localStorage.getItem("totalPrice"))
+      setTotalPrice(priceLocal)
+      let countLocal = JSON.parse(localStorage.getItem("itemCount"))
+      setItemCount(countLocal)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("cartList", JSON.stringify(cartList))
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice))
+    localStorage.setItem("itemCount", JSON.stringify(itemCount))
+  }, [cartList, totalPrice, itemCount])
 
   return (
     <div className="xxx">
