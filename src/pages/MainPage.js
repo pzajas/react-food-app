@@ -3,6 +3,7 @@ import Cart from "../components/Cart/Cart"
 import Cards from "../components/Card/ImageCards/Cards"
 import IconCards from "../components/Card/IconCards/IconCards"
 import Menu from "../components/Menu/Menu"
+import Review from '../components/Review/Review'
 import Gallery from "../components/Gallery/Gallery"
 import Footer from "../components/Footer/Footer"
 import PageEnd from "../components/Footer/PageEnd"
@@ -56,6 +57,7 @@ const MainPage = ({
         setTotalPrice={setTotalPrice}
         handleAdd={handleAdd}
       />
+      <Review/>
       <Slider image={SecondarySlider} />
       <IconCards />
       <Gallery />
