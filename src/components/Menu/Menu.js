@@ -1,38 +1,13 @@
 import {useEffect, useState} from "react"
-
+import axios from 'axios'
 import Burger1 from "../../assets/Menu/Transparent/Burger1.png"
 
 import "./Menu.css"
 
 const Menu = ({handleAdd}) => {
-  const initialState = [
-    {
-      id: Math.random() * 1000,
-      name: "Hamb",
-      description:
-        "A hamburger (also burger for short) is a food, typically considered a sandwich",
-      price: 10,
-      cost: 10,
-    },
-    {
-      id: Math.random() * 1000,
-      name: "Pizza",
-      description:
-        "A hamburger (also burger for short) is a food, typically considered a sandwich",
-      price: 15,
-      cost: 15,
-    },
-    {
-      id: Math.random() * 1000,
-      name: "Sushi",
-      description:
-        "A hamburger (also burger for short) is a food, typically considered a sandwich",
-      price: 8,
-      cost: 8,
-    },
-  ]
+  const initialState = []
 
-  const [menu] = useState(initialState)
+  const [menu, setMenu] = useState(initialState)
   const [filteredMenu, setFilteredMenu] = useState([])
 
   const [status, setStatus] = useState("All")
@@ -40,6 +15,15 @@ const Menu = ({handleAdd}) => {
   const handleStatus = e => {
     setStatus(e.target.value)
   }
+
+  const baseURL = "http://127.0.0.1:3001/api/v1/foods"
+
+  useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setMenu(response.data);
+    });
+  }, []);
+
 
   useEffect(() => {
     switch (status) {
@@ -50,7 +34,7 @@ const Menu = ({handleAdd}) => {
         setFilteredMenu(menu.filter(item => item.name === "Pizza"))
         break
       case "Sushi":
-        setFilteredMenu(menu.filter(item => item.name === "Sushi"))
+        setFilteredMenu(menu.filter(item => item.name === "Shushi"))
         break
       default:
         setFilteredMenu(menu)
